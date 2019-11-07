@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Find a Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-list>
+        <ion-item>
+            <ion-label>
+              <ion-icon name="key"></ion-icon>
+              Room Type
+            </ion-label>
+            <ion-select [(ngModel)]="roomType">
+                <ion-select-option value="standard">Standard</ion-select-option>
+                <ion-select-option value="studio">Studion</ion-select-option>
+                <ion-select-option value="villa">Villa</ion-select-option>
+                <ion-select-option value="penthouse">Penthouse</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label><ion-icon name="people"></ion-icon> Beds</ion-label>
+            <ion-select [(ngModel)]="beds">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+                <ion-select-option value="3">3</ion-select-option>
+                <ion-select-option value="4">4</ion-select-option>
+                <ion-select-option value="5">5</ion-select-option>
+                <ion-select-option value="6">6</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label><ion-icon name="people"></ion-icon> Guests</ion-label>
+            <ion-select [(ngModel)]="guests">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+                <ion-select-option value="3">3</ion-select-option>
+                <ion-select-option value="4">4</ion-select-option>
+                <ion-select-option value="5">5</ion-select-option>
+                <ion-select-option value="6">6</ion-select-option>
+                <ion-select-option value="7">7</ion-select-option>
+                <ion-select-option value="8">8</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label><ion-icon name="clock"></ion-icon> Check in:</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" max="2020-12-31" pickerFormat="YYYY-MM-DD" [(ngModel)]="from"></ion-datetime>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label><ion-icon name="alarm"></ion-icon> Check out:</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" max="2020-12-31" pickerFormat="YYYY-MM-DD" [(ngModel)]="to"></ion-datetime>
+          </ion-item>
+          <ion-item>
+              <ion-label>Cost per night (${{priceRange.lower}} - ${{priceRange.upper}})</ion-label>
+              <ion-range max="500" dualKnobs="true" pin="true" [(ngModel)]="priceRange" dark>
+                  <ion-icon range-left small name="star-half"></ion-icon>
+                  <ion-icon range-right name="star"></ion-icon>
+              </ion-range>
+          </ion-item>
+  
+      </ion-list>
+  
+      <ion-button (click)="findRooms()" ion-button expand="full" color="light">Find Rooms</ion-button>
+</ion-content>
